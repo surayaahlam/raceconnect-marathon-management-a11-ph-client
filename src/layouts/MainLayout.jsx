@@ -1,17 +1,17 @@
-import NavbarContainer from "../components/NavbarContainer";
-import FooterContainer from "../components/FooterContainer";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import { Outlet } from "react-router-dom";
 import useTheme from "../hooks/useTheme";
 
 const MainLayout = () => {
-    const { theme } = useTheme;
+    const { theme } = useTheme();
     return (
         <div className={`font-nunito ${theme === "light" ? "bg-white" : "bg-d_body"}`}>
-            <NavbarContainer></NavbarContainer>
-            <div>
+            <Navbar></Navbar>
+            <div className="min-h-[calc(100vh-512.8px)]">
                 <Outlet></Outlet>
             </div>
-            {/* <FooterContainer></FooterContainer> */}
+            <Footer></Footer>
         </div>
     );
 };
