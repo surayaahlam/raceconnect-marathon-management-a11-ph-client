@@ -1,10 +1,9 @@
-import { useContext } from "react";
+import useTheme from "../hooks/useTheme";
 import ErrorImg from "../assets/Error.png"
-import { ThemeContext } from "../provider/ThemeProvider";
 import { useNavigate } from "react-router-dom";
 
 const ErrorPage = () => {
-    const { theme } = useContext(ThemeContext);
+    const { theme } = useTheme();
     const navigate = useNavigate();
     return (
         <div className={`container mx-auto ${theme === "light" ? "bg-white" : "bg-d_body"}`}>
