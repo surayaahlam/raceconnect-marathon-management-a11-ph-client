@@ -1,15 +1,14 @@
 import { Helmet } from "react-helmet-async";
 
-const Marathons = () => {
+const MarathonDetail = () => {
     return (
         <div>
             <Helmet>
-                <title>RaceConnect | Marathons</title>
+                <title>{`RaceConnect | ${product_title}`}</title>
             </Helmet>
-            Marathons
 
         </div>
     );
 };
 
-export default Marathons;
+export default MarathonDetail;

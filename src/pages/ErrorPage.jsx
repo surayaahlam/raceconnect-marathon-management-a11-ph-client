@@ -1,12 +1,16 @@
 import useTheme from "../hooks/useTheme";
 import ErrorImg from "../assets/Error.png"
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const ErrorPage = () => {
     const { theme } = useTheme();
     const navigate = useNavigate();
     return (
         <div className={`container mx-auto ${theme === "light" ? "bg-white" : "bg-d_body"}`}>
+            <Helmet>
+                <title>RaceConnect | Error</title>
+            </Helmet>
             <div className="w-11/12 mx-auto flex flex-col lg:flex-row gap-4 items-center justify-center h-[100vh]">
                 <img className="h-[450px] lg:h-[500px]" src={ErrorImg} alt="404" />
                 <div className="flex flex-col items-center gap-4 md:gap-6">
