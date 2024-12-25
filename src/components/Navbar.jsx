@@ -5,6 +5,7 @@ import useTheme from "../hooks/useTheme";
 import useAuth from "../hooks/useAuth";
 import { FaBars } from "react-icons/fa";
 import { FiSun } from "react-icons/fi";
+import { FaUserCircle } from "react-icons/fa";
 import { HiOutlineMoon } from "react-icons/hi2";
 
 
@@ -63,7 +64,7 @@ const Navbar = () => {
                                     </div>
                                 </div>
                                 <div className="flex-none">
-                                    <ul className="menu menu-horizontal font-medium md:flex gap-5 hidden">
+                                    <ul className="menu menu-horizontal font-medium lg:flex gap-5 hidden">
                                         {/* Navbar menu content here */}
                                         {links}
                                     </ul>
@@ -76,14 +77,14 @@ const Navbar = () => {
 
                                         {/* sun icon */}
                                         <div className="swap-on text-font_tertiary flex items-center">
-                                            <FiSun className="hidden lg:block" size={26} />
-                                            <FiSun className="lg:hidden" size={23} />
+                                            <FiSun className="hidden md:block" size={26} />
+                                            <FiSun className="md:hidden" size={23} />
                                         </div>
 
                                         {/* moon icon */}
                                         <div className="swap-off text-font_primary flex items-center">
-                                            <HiOutlineMoon className="hidden lg:block" size={26} />
-                                            <HiOutlineMoon className="lg:hidden" size={23} />
+                                            <HiOutlineMoon className="hidden md:block" size={26} />
+                                            <HiOutlineMoon className="md:hidden" size={23} />
                                         </div>
                                     </label>
 
@@ -103,7 +104,7 @@ const Navbar = () => {
                                         </div>
                                     }
 
-                                    <div className="flex-none md:hidden">
+                                    <div className="flex-none lg:hidden">
                                         <label htmlFor="my-drawer" aria-label="open sidebar" className="btn btn-square btn-ghost">
                                             <div className={`btn btn-ghost lg:hidden ${theme === "light" ? "text-font_primary" : "text-font_tertiary"}`}>
                                                 <FaBars size={25} />
@@ -115,7 +116,7 @@ const Navbar = () => {
                         </div>
                         <div className="drawer-side">
                             <label htmlFor="my-drawer" aria-label="close sidebar" className="drawer-overlay"></label>
-                            <ul className={`menu ${theme === "light" ? "bg-white" : "bg-d_body"} flex gap-3 min-h-full w-60 px-6 py-8`}>
+                            <ul className={`menu ${theme === "light" ? "bg-white" : "bg-d_body"} flex gap-3 min-h-full w-60 md:w-72 px-6 py-8 z-10`}>
                                 {links}
                             </ul>
                         </div>
