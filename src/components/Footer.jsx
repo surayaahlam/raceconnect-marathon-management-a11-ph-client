@@ -36,7 +36,7 @@ const Footer = () => {
                     <p className="text-base font-normal mb-3 text-center lg:text-start">Subscribe to receive inspiration, ideas, <br />and news in your inbox.</p>
                     <div className="flex relative w-full md:w-8/12 lg:w-full">
                         <input className="input rounded-xl input-bordered bg-font_tertiary mb-4 font-normal text-base w-full text-font_secondary" type="email" placeholder="Enter your email" />
-                        <button className="btn rounded-xl bg-secondary border-none rounded-tl-none rounded-bl-none border-l-0 text-base font-bold text-font_primary px-7 absolute right-0">Subscribe</button>
+                        <button className="btn rounded-xl hover:bg-font_quaternary bg-secondary border-none rounded-tl-none rounded-bl-none border-l-0 text-base font-bold text-font_primary px-7 absolute right-0">Subscribe</button>
                     </div>
                   </nav>
                 </div>

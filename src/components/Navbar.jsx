@@ -16,29 +16,29 @@ const Navbar = () => {
     const links = <>
         <NavLink
             to="/"
-            className={({ isActive }) => `text-lg md:text-base  ${theme === "light" ? "text-font_primary" : "text-font_tertiary"} ${isActive ? `font-extrabold text-primary` : 'hover:scale-105'}`}>Home</NavLink>
+            className={({ isActive }) => `text-lg lg:text-base  ${theme === "light" ? "text-font_primary" : "text-font_tertiary"} ${isActive ? `font-extrabold text-primary` : 'hover:scale-105'}`}>Home</NavLink>
         <NavLink
             to="/marathons"
-            className={({ isActive }) => `text-lg md:text-base ${theme === "light" ? "text-font_primary" : "text-font_tertiary"} ${isActive ? `font-extrabold text-primary` : 'hover:scale-105'}`}>Marathons</NavLink>
+            className={({ isActive }) => `text-lg lg:text-base ${theme === "light" ? "text-font_primary" : "text-font_tertiary"} ${isActive ? `font-extrabold text-primary` : 'hover:scale-105'}`}>Marathons</NavLink>
         {
             user?.email &&
             <NavLink
                 to="/dashboard"
-                className={({ isActive }) => `text-lg md:text-base ${theme === "light" ? "text-font_primary" : "text-font_tertiary"} ${isActive ? `font-extrabold text-primary` : 'hover:scale-105'}`}>Dashboard</NavLink>
+                className={({ isActive }) => `text-lg lg:text-base ${theme === "light" ? "text-font_primary" : "text-font_tertiary"} ${isActive ? `font-extrabold text-primary` : 'hover:scale-105'}`}>Dashboard</NavLink>
         }
         {
             user?.email ?
                 (
-                    <Link onClick={logOut} className={`text-lg md:text-base ${theme === "light" ? "text-font_primary" : "text-font_tertiary"} hover:scale-105`}>Logout</Link>
+                    <Link onClick={logOut} className={`text-lg lg:hidden ${theme === "light" ? "text-font_primary" : "text-font_tertiary"} hover:scale-105`}>Logout</Link>
                 ) :
                 (
                     <>
                         <NavLink
                             to="/login"
-                            className={({ isActive }) => `text-lg md:text-base ${theme === "light" ? "text-font_primary" : "text-font_tertiary"} ${isActive ? `font-extrabold text-primary` : 'hover:scale-105'}`}>Login</NavLink>
+                            className={({ isActive }) => `text-lg lg:text-base ${theme === "light" ? "text-font_primary" : "text-font_tertiary"} ${isActive ? `font-extrabold text-primary` : 'hover:scale-105'}`}>Login</NavLink>
                         <NavLink
                             to="/register"
-                            className={({ isActive }) => `text-lg md:text-base ${theme === "light" ? "text-font_primary" : "text-font_tertiary"} ${isActive ? `font-extrabold text-primary` : 'hover:scale-105'}`}>Register</NavLink>
+                            className={({ isActive }) => `text-lg lg:text-base ${theme === "light" ? "text-font_primary" : "text-font_tertiary"} ${isActive ? `font-extrabold text-primary` : 'hover:scale-105'}`}>Register</NavLink>
                     </>
                 )
 
@@ -73,7 +73,8 @@ const Navbar = () => {
                                         <input
                                             type="checkbox"
                                             onChange={toggleTheme}
-                                            checked={theme === 'dark'} />
+                                            checked={theme === 'dark'}
+                                            className="hidden" />
 
                                         {/* sun icon */}
                                         <div className="swap-on text-font_tertiary flex items-center">
@@ -102,6 +103,11 @@ const Navbar = () => {
                                                     </div>
                                             }
                                         </div>
+                                    }
+
+                                    {
+                                        user?.email &&
+                                        <button onClick={logOut} className={`hidden lg:block btn bg-secondary text-font_primary hover:bg-font_quaternary font-lato px-4 font-bold text-base border-none ml-4`}>Log Out</button>
                                     }
 
                                     <div className="flex-none lg:hidden">
