@@ -13,7 +13,7 @@ const ErrorPage = () => {
                 <div className="flex flex-col items-center gap-4 md:gap-6">
                     <h2 className={`text-4xl md:text-5xl lg:text-6xl ${theme === "light" ? "text-font_primary" : "text-font_tertiary"} font-bold font-roboto text-center`}>Oops! Page Not Found.</h2>
                     <p className={`${theme === "light" ? "text-font_primary" : "text-font_tertiary"} text-lg`}>Sorry, the page you are looking for doesn't exist.</p>
-                    <button onClick={() => navigate("/")} className={`hidden lg:block btn bg-primary text-white hover:bg-font_quaternary font-lato px-7 font-bold text-base border-none ml-4`}>Back to Home</button>
+                    <button onClick={() => navigate("/")} className={`btn bg-primary text-white hover:bg-font_quaternary font-lato px-7 font-bold text-base border-none`}>Back to Home</button>
                 </div>
             </div>
 
