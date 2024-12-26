@@ -9,8 +9,8 @@ import ErrorPage from "../pages/ErrorPage";
 import AddMarathon from "../pages/AddMarathon";
 import MyMarathonList from "../pages/MyMarathonList";
 import MyApplyList from "../pages/MyApplyList";
-import MarathonDetails from "../pages/MarathonDetails";
 import PrivateRoute from "./PrivateRoute";
+import MarathonDetails from "../pages/MarathonDetails";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +20,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+        loader: () => fetch('http://localhost:5000/marathonSection')
       },
       {
         path: "/marathons",
@@ -28,7 +29,7 @@ const router = createBrowserRouter([
         </PrivateRoute>,
       },
       {
-        path: "/marathonDetails",
+        path: "/marathon/:id",
         element: <PrivateRoute>
           <MarathonDetails></MarathonDetails>
         </PrivateRoute>,
@@ -36,7 +37,7 @@ const router = createBrowserRouter([
       {
         path: "/dashboard",
         element: <PrivateRoute>
-          <DashboardLayout></DashboardLayout>,
+          <DashboardLayout></DashboardLayout>
         </PrivateRoute>,
         children: [
           {
