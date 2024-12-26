@@ -50,7 +50,7 @@ const Banner = () => {
                             src={BannerImg3}
                             alt="Slide 3"
                         />
-                        <div className="absolute top-[180px] md:right-[35px] lg:top-[200px] lg:right-[330px] z-10 p-6">
+                        <div className="absolute top-[180px] md:right-[35px] lg:top-[200px] lg:right-[300px] z-10 p-6">
                             <h2 className="text-5xl md:text-7xl lg:text-8xl text-white font-extrabold font-lato italic text-center">Track Your <span className="text-secondary">Progress...</span></h2>
                             <p className="text-base md:text-lg lg:text-xl font-bold text-white mt-3 mb-9 text-center">Monitor your race results, personal bests, and set new goals with ease.</p>
                             <div className="text-center">
