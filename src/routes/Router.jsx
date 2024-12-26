@@ -9,6 +9,8 @@ import ErrorPage from "../pages/ErrorPage";
 import AddMarathon from "../pages/AddMarathon";
 import MyMarathonList from "../pages/MyMarathonList";
 import MyApplyList from "../pages/MyApplyList";
+import MarathonDetails from "../pages/MarathonDetails";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -21,29 +23,45 @@ const router = createBrowserRouter([
       },
       {
         path: "/marathons",
-        element: <Marathons></Marathons>,
+        element: <PrivateRoute>
+          <Marathons></Marathons>
+        </PrivateRoute>,
+      },
+      {
+        path: "/marathonDetails",
+        element: <PrivateRoute>
+          <MarathonDetails></MarathonDetails>
+        </PrivateRoute>,
       },
       {
         path: "/dashboard",
-        element: <DashboardLayout></DashboardLayout>,
+        element: <PrivateRoute>
+          <DashboardLayout></DashboardLayout>,
+        </PrivateRoute>,
         children: [
           {
-              index: true,
-              element: <Navigate to="/dashboard/addMarathon" replace></Navigate>,
+            index: true,
+            element: <Navigate to="/dashboard/addMarathon" replace></Navigate>,
           },
           {
             path: 'addMarathon',
-            element: <AddMarathon></AddMarathon>
+            element: <PrivateRoute>
+              <AddMarathon></AddMarathon>
+            </PrivateRoute>
           },
           {
             path: 'myMarathonList',
-            element: <MyMarathonList></MyMarathonList>
+            element: <PrivateRoute>
+              <MyMarathonList></MyMarathonList>
+            </PrivateRoute>
           },
           {
             path: 'myApplyList',
-            element: <MyApplyList></MyApplyList>
+            element: <PrivateRoute>
+              <MyApplyList></MyApplyList>
+            </PrivateRoute>
           }
-      ]  
+        ]
       },
       {
         path: "/login",
