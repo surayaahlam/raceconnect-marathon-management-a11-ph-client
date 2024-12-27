@@ -42,7 +42,7 @@ const MarathonDetails = () => {
             <Helmet>
                 <title>{`RaceConnect | ${title}`}</title>
             </Helmet>
-            <h2 className={`text-4xl font-extrabold text-center mb-8 font-lato text-primary`}>Marathon Details</h2>
+            <h2 className={`text-3xl md:text-4xl font-extrabold text-center mb-8 font-lato text-primary`}>Marathon Details</h2>
             <div className="w-11/12 lg:w-10/12 mx-auto">
                 <div className={`p-5 md:p-8 flex flex-col md:flex-row gap-6 lg:gap-10 rounded-3xl ${theme === "light" ? "bg-[#f5f6f5]" : "bg-footer"}`}>
                     <div className="md:w-[45%]">

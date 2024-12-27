@@ -7,7 +7,7 @@ const MarathonSection = ({ marathonSection }) => {
 
     return (
         <div className="container mx-auto mb-28">
-            <h2 className={`text-4xl font-extrabold text-center mb-8 font-lato ${theme === "light" ? "text-font_primary" : "text-font_tertiary"}`}>
+            <h2 className={`text-3xl md:text-4xl font-extrabold text-center mb-8 font-lato ${theme === "light" ? "text-font_primary" : "text-font_tertiary"}`}>
                 Marathons
             </h2>
             <section className="w-11/12 lg:w-9/12 mx-auto">

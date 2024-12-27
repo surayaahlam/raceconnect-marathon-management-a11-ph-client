@@ -16,8 +16,8 @@ const Footer = () => {
                   <nav className="flex flex-col items-center lg:items-start lg:ml-10 text-font_quaternary">
                     <h6 className="footer-title text-base text-primary font-lato">Quick Links</h6>
                     <a className="link link-hover text-base font-normal">About Us</a>
+                    <a className="link link-hover text-base font-normal">Careers</a>
                     <a className="link link-hover text-base font-normal">Upcoming Events</a>
-                    <a className="link link-hover text-base font-normal">Dashboard</a>
                     <a className="link link-hover text-base font-normal">Contact Us</a>
                     <a className="link link-hover text-base font-normal">FAQs</a>
                   </nav>
