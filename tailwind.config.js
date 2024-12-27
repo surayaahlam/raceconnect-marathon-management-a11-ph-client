@@ -26,7 +26,7 @@ export default {
         nunito: 'Nunito',
       },
       backgroundImage: {
-        'footer_img': "url('src/assets/footer.jpg')",
+        'footer_img': "url('https://i.ibb.co.com/10dh281/footer.jpg')",
         'mission_img': "url('https://i.ibb.co.com/CByQ7ZB/Untitled-design.jpg')",
         'pattern': "url('https://i.ibb.co.com/Z6bkXvG/Untitled-design-1.jpg')"
       }
