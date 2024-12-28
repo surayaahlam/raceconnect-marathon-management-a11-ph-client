@@ -32,25 +32,6 @@ const Login = () => {
             navigate(location.state?.from || "/");
           }
         });
-        const userInfo = {
-          name: user.displayName,
-          email: user.email,
-          createdAt: user.metadata.creationTime,
-          lastSignInTime: user.metadata.lastSignInTime,
-        };
-
-        // Using PUT to handle both creation and update
-        fetch(`${import.meta.env.VITE_API_URL}/users`, {
-          method: 'PUT',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(userInfo),
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            console.log("User created/updated in DB:", data);
-          });
       })
       .catch((err) => {
         toast.error(`Google login error: ${err.message}`, {
@@ -77,19 +58,6 @@ const Login = () => {
             navigate(location.state?.from || "/");
           }
         });
-        const lastSignInTime = result?.user?.metadata?.lastSignInTime;
-        const loginInfo = { email, lastSignInTime }
-        fetch(`${import.meta.env.VITE_API_URL}/users`, {
-          method: 'PATCH',
-          headers: {
-            'content-type': 'application/json'
-          },
-          body: JSON.stringify(loginInfo)
-        })
-          .then(res => res.json())
-          .then(data => {
-            console.log('sign in info updated in db', data)
-          })
       })
       .catch((err) => {
         setError({ ...error, login: "Your email or password is incorrect. Please try again." })

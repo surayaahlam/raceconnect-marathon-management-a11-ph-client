@@ -30,26 +30,6 @@ const Register = () => {
             navigate("/");
           }
         });
-
-        const userInfo = {
-          name: user.displayName,
-          email: user.email,
-          createdAt: user.metadata.creationTime,
-          lastSignInTime: user.metadata.lastSignInTime,
-        };
-
-        // Using PUT to handle both creation and update
-        fetch(`https://b10-a10-server-side-surayaahlam.vercel.app/users`, {
-          method: 'PUT',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(userInfo),
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            console.log("User created/updated in DB:", data);
-          })
       })
       .catch((err) => {
         toast.error(`Google sign up error: ${err.message}`, {
@@ -102,20 +82,6 @@ const Register = () => {
                 navigate("/");
               }
             });
-          });
-        const createdAt = result?.user?.metadata?.creationTime;
-        const newUser = { name, email, createdAt }
-        // save new user info to the database
-        fetch('https://b10-a10-server-side-surayaahlam.vercel.app/users', {
-          method: 'POST',
-          headers: {
-            'content-type': 'application/json'
-          },
-          body: JSON.stringify(newUser)
-        })
-          .then(res => res.json())
-          .then(data => {
-            console.log("user created to db", data)
           });
       })
       .catch((err) => {

@@ -87,7 +87,7 @@ const AddMarathon = () => {
             <Helmet>
                 <title>RaceConnect | Add Marathon</title>
             </Helmet>
-            <div className={`w-full mx-auto p-4 md:p-10 lg:px-20 ${theme === "light" ? "bg-[#f5f6f5]" : "bg-footer"}`}>
+            <div className={`w-full mx-auto p-4 md:p-10 lg:px-20`}>
                 <h2 className={`text-2xl md:text-3xl font-extrabold text-center mb-4 font-lato ${theme === "light" ? "text-font_primary " : "text-font_tertiary"}`}>Add Marathon Form</h2>
                 <form onSubmit={handleSubmit} className="space-y-4 lg:space-y-5">
                     <div>
