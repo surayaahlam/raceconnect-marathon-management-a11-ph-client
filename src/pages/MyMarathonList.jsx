@@ -19,14 +19,24 @@ const MyMarathonList = () => {
     const [registrationStartDate, setRegistrationStartDate] = useState(null);
     const [registrationEndDate, setRegistrationEndDate] = useState(null);
     const [marathonStartDate, setMarathonStartDate] = useState(null);
+    const [sortOrder, setSortOrder] = useState("");
 
     useEffect(() => {
         fetchAllMarathons()
-    }, [user])
+    }, [user, sortOrder])
 
     const fetchAllMarathons = async () => {
-        const { data } = await axiosSecure.get(`/marathons/${user?.email}`)
+        const { data } = await axiosSecure.get(`/marathons/${user?.email}?sortOrder=${sortOrder}`);
         setMarathons(data)
+    };
+
+    // Example button handlers to change sortOrder
+    const handleSortAscending = () => {
+        setSortOrder('asc');
+    };
+
+    const handleSortDescending = () => {
+        setSortOrder('desc');
     };
 
     useEffect(() => {
@@ -127,7 +137,24 @@ const MyMarathonList = () => {
                 <title>RaceConnect | My Marathon List</title>
             </Helmet>
             <div className={`w-full mx-auto p-2 lg:py-5 lg:px-14`}>
-                <h2 className={`text-2xl md:text-3xl font-extrabold text-center mb-7 font-lato ${theme === "light" ? "text-font_primary " : "text-font_tertiary"}`}>My Marathons List</h2>
+                <h2 className={`text-2xl md:text-3xl font-extrabold text-center mb-4 font-lato ${theme === "light" ? "text-font_primary " : "text-font_tertiary"}`}>My Marathons List</h2>
+
+                {/* Sorting Buttons */}
+                <div className="mb-4 text-center md:text-end">
+                    <button
+                        className={`btn btn-ghost mt-4 px-6 py-2 text-sm ${theme === "light" ? "text-font_primary border-[#d7dbdb]" : "text-font_tertiary border-font_secondary hover:bg-font_quaternary"} rounded-l-lg font-lato ${sortOrder === "asc" ? "bg-secondary text-white font-bold border-none" : ""}`}
+                        onClick={handleSortAscending}
+                    >
+                        Oldest First
+                    </button>
+                    <button
+                        className={`btn btn-ghost mt-4 px-6 py-2 text-sm ${theme === "light" ? "text-font_primary border-[#d7dbdb]" : "text-font_tertiary border-font_secondary hover:bg-font_quaternary"} rounded-r-lg font-lato ${sortOrder === "desc" ? "bg-secondary text-white font-bold border-none" : ""}`}
+                        onClick={handleSortDescending}
+                    >
+                        Newest First
+                    </button>
+                </div>
+
                 <table className="min-w-full table-auto border-collapse border overflow-x-auto">
                     <thead>
                         <tr>
@@ -264,13 +291,13 @@ const MyMarathonList = () => {
                                     />
                                 </div>
                                 <div className="modal-action justify-center">
-                                    <button type="submit" className={`btn bg-secondary text-white hover:bg-font_quaternary font-lato px-10 font-bold text-lg rounded border-none`}>
+                                    <button type="submit" className={`btn bg-secondary text-white hover:bg-font_quaternary font-lato px-10 font-bold text-lg rounded-lg border-none`}>
                                         Update
                                     </button>
                                     <button
                                         type="button"
                                         onClick={() => document.getElementById('updateModal').close()}
-                                        className={`btn bg-button text-white hover:bg-font_quaternary font-lato px-10 font-bold text-lg rounded border-none`}
+                                        className={`btn bg-button text-white hover:bg-font_quaternary font-lato px-10 font-bold text-lg rounded-lg border-none`}
                                     >
                                         Cancel
                                     </button>

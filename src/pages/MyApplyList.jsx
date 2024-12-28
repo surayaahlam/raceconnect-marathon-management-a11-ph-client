@@ -217,13 +217,13 @@ const MyApplyList = () => {
                                     ></textarea>
                                 </div>
                                 <div className="modal-action justify-center">
-                                    <button type="submit" className={`btn bg-secondary text-white hover:bg-font_quaternary font-lato px-10 font-bold text-lg rounded border-none`}>
+                                    <button type="submit" className={`btn bg-secondary text-white hover:bg-font_quaternary font-lato px-10 font-bold text-lg rounded-lg border-none`}>
                                         Update
                                     </button>
                                     <button
                                         type="button"
                                         onClick={() => document.getElementById('updateModal').close()}
-                                        className={`btn bg-button text-white hover:bg-font_quaternary font-lato px-10 font-bold text-lg rounded border-none`}
+                                        className={`btn bg-button text-white hover:bg-font_quaternary font-lato px-10 font-bold text-lg rounded-lg border-none`}
                                     >
                                         Cancel
                                     </button>
