@@ -40,7 +40,7 @@ const Login = () => {
         };
 
         // Using PUT to handle both creation and update
-        fetch(`http://localhost:5000/users`, {
+        fetch(`${import.meta.env.VITE_API_URL}/users`, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',
@@ -79,7 +79,7 @@ const Login = () => {
         });
         const lastSignInTime = result?.user?.metadata?.lastSignInTime;
         const loginInfo = { email, lastSignInTime }
-        fetch(`http://localhost:5000/users`, {
+        fetch(`${import.meta.env.VITE_API_URL}/users`, {
           method: 'PATCH',
           headers: {
             'content-type': 'application/json'

@@ -11,7 +11,7 @@ const Marathons = () => {
 
     useEffect(() => {
         const fetchMarathons = async () => {
-            const { data } = await axios.get(`http://localhost:5000/marathons`)
+            const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/marathons`)
             setMarathons(data)
         };
 

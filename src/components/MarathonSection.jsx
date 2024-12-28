@@ -13,7 +13,7 @@ const MarathonSection = ({ marathonSection }) => {
             <section className="w-11/12 lg:w-9/12 mx-auto">
                 <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6`}>
                     {marathonSection.map(marathon => (
-                        <div key={marathon._id} className={`card p-8 ${theme === "light" ? "bg-[#f5f6f5]" : "bg-footer"}`}>
+                        <div key={marathon._id} className={`card p-8 ${theme === "light" ? "bg-[#f5f6f5]" : "bg-footer"} text-center`}>
                             <h3 className={`text-[26px] font-lato font-extrabold ${theme === "light" ? "text-font_primary" : "text-font_tertiary"} mb-4`}>{marathon.title}</h3>
                             <div className="mb-1">
                                 <p className={`${theme === "light" ? "text-font_secondary" : "text-font_quaternary"}`}><strong className={`${theme !== "light" && "text-font_tertiary"} font-lato`}>Location: </strong>{marathon.location}</p>

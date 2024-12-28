@@ -8,7 +8,7 @@ const UpcomingMarathons = () => {
 
     useEffect(() => {
         const fetchUpcomingMarathons = async () => {
-            const { data } = await axios.get("http://localhost:5000/upcomingMarathons");
+            const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/upcomingMarathons`);
             setUpcomingMarathons(data);
         };
 

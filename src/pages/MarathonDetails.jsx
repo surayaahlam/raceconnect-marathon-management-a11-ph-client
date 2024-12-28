@@ -15,7 +15,7 @@ const MarathonDetails = () => {
     useEffect(() => {
         // Fetch marathon details by ID
         axios
-            .get(`http://localhost:5000/marathon/${id}`)
+            .get(`${import.meta.env.VITE_API_URL}/marathon/${id}`)
             .then((res) => {
                 const marathonData = res.data;
                 setMarathon(marathonData);

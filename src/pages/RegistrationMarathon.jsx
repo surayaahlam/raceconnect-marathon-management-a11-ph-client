@@ -18,7 +18,7 @@ const RegistrationMarathon = () => {
     }, [id])
 
     const fetchMarathonData = async () => {
-        const { data } = await axios.get(`http://localhost:5000/marathon/${id}`)
+        const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/marathon/${id}`)
         setMarathon(data)
     }
 
@@ -46,7 +46,7 @@ const RegistrationMarathon = () => {
         try {
             // Send registration data to server
             const { data } = await axios.post(
-                `http://localhost:5000/registrations`,
+                `${import.meta.env.VITE_API_URL}/registrations`,
                 registrationData
             );
 
@@ -63,7 +63,7 @@ const RegistrationMarathon = () => {
 
             // Update marathon registration count
             await axios.patch(
-                `http://localhost:5000/marathon/${id}/increment`
+                `${import.meta.env.VITE_API_URL}/marathon/${id}/increment`
             );
 
             // Navigate to myApplyList
