@@ -1,13 +1,14 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import useAuth from "../hooks/useAuth";
 import useTheme from "../hooks/useTheme";
 import { useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const RegistrationMarathon = () => {
     const { id } = useParams();
+    const axiosSecure = useAxiosSecure();
     const { user } = useAuth();
     const { theme } = useTheme();
     const [marathon, setMarathon] = useState({});
@@ -18,7 +19,7 @@ const RegistrationMarathon = () => {
     }, [id])
 
     const fetchMarathonData = async () => {
-        const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/marathon/${id}`)
+        const { data } = await axiosSecure.get(`/marathon/${id}`)
         setMarathon(data)
     }
 
@@ -45,8 +46,8 @@ const RegistrationMarathon = () => {
 
         try {
             // Send registration data to server
-            const { data } = await axios.post(
-                `${import.meta.env.VITE_API_URL}/registrations`,
+            const { data } = await axiosSecure.post(
+                `/registrations`,
                 registrationData
             );
 
@@ -62,8 +63,8 @@ const RegistrationMarathon = () => {
             });
 
             // Update marathon registration count
-            await axios.patch(
-                `${import.meta.env.VITE_API_URL}/marathon/${id}/increment`
+            await axiosSecure.patch(
+                `/marathon/${id}/increment`
             );
 
             // Navigate to myApplyList

@@ -2,16 +2,17 @@ import { Helmet } from "react-helmet-async";
 import useTheme from "../hooks/useTheme";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const Marathons = () => {
     const { theme } = useTheme();
+    const axiosSecure = useAxiosSecure();
     const [marathons, setMarathons] = useState([]);
     const navigate = useNavigate();
 
     useEffect(() => {
         const fetchMarathons = async () => {
-            const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/marathons`)
+            const { data } = await axiosSecure.get(`/marathons`)
             setMarathons(data)
         };
 
