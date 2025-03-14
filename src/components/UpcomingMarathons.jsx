@@ -26,20 +26,20 @@ const UpcomingMarathons = () => {
                     {upcomingMarathons.map(marathon => (
                         <div
                             key={marathon._id}
-                            className={`relative bg-cover bg-no-repeat rounded-sm p-3`}
+                            className={`relative bg-cover bg-no-repeat rounded-md p-3`}
                             style={{ backgroundImage: `url(${marathon.image})` }}
                         >
                             {/* <img className="w-full h-full object-cover" src={marathon.image} alt="image" /> */}
-                            <div className="rounded bg-white bg-opacity-40 p-4 text-black text-center">
-                                <h3 className={`text-2xl font-lato font-extrabold mb-2 text-primary`}>{marathon.title}</h3>
+                            <div className="rounded-sm bg-white bg-opacity-60 p-4 text-black text-center">
+                                <h3 className={`text-2xl font-lato font-extrabold mb-2 text-primary`}>{marathon.name}</h3>
                                 <p className="font-semibold">
                                     <strong className="font-lato">Location:</strong> {marathon.location}
                                 </p>
                                 <p className=" font-semibold">
-                                    <strong className="font-lato">Date:</strong> {new Date(marathon.marathonStartAt).toLocaleString('en-Gb').slice(0, 10)}
+                                    <strong className="font-lato">Date:</strong> {new Date(marathon.date).toLocaleString('en-Gb').slice(0, 10)}
                                 </p>
                                 <p className="font-semibold">
-                                    <strong className="font-lato">Distance:</strong> {marathon.runningDistance}
+                                    <strong className="font-lato">Distance:</strong> {marathon.distance}
                                 </p>
                                 <p className="mt-2 font-semibold">{marathon.description}</p>
                             </div>

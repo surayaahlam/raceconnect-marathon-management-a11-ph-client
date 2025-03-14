@@ -120,7 +120,7 @@ const Navbar = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="drawer-side">
+                        <div className="drawer-side z-50">
                             <label htmlFor="my-drawer" aria-label="close sidebar" className="drawer-overlay"></label>
                             <ul className={`menu ${theme === "light" ? "bg-white" : "bg-d_body"} flex gap-3 min-h-full w-60 md:w-72 px-6 py-8 z-10`}>
                                 {links}
