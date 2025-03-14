@@ -4,9 +4,9 @@ import useTheme from "../hooks/useTheme";
 const DashboardLayout = () => {
     const { theme } = useTheme();
     return (
-        <div className="container mx-auto mt-10 mb-28">
+        <div className="mx-auto mt-10 mb-28">
             <h2 className={`text-3xl md:text-4xl font-extrabold text-center mb-8 font-lato text-primary`}>Dashboard</h2>
-            <div className="w-11/12 mx-auto flex flex-col lg:flex-row gap-8">
+            <div className="flex flex-col lg:flex-row gap-8">
 
                 <div className={`w-full lg:w-2/12 grid grid-flow-row auto-rows-min grid-cols-1 md:grid-cols-3 lg:grid-cols-1 px-5 py-6 ${theme === "light" ? "bg-[#f5f6f5]" : "bg-footer"}`}>
                     <NavLink

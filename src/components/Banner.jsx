@@ -6,7 +6,7 @@ import ShapeImg from "../assets/shapes.png"
 
 const Banner = () => {
     return (
-        <div className="container mx-auto mb-28 mt-0">
+        <div className="mx-auto mb-28 mt-0">
             <div className="h-[700px]">
                 <Carousel
                     slideInterval={5000}

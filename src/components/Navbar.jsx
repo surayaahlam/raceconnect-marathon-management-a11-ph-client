@@ -48,83 +48,85 @@ const Navbar = () => {
 
 
     return (
-        <div className={`py-3 font-lato relative ${theme === "light" ? "bg-white" : "bg-d_body"} shadow-lg`}>
-            <img className="absolute top-0 h-[88px] w-[60px] md:w-[66px] lg:w-[88px]" src={navImg} alt="" />
-            <div className="container mx-auto">
-                <div className="w-11/12 mx-auto">
-                    <div className="drawer drawer-end">
-                        <input id="my-drawer" type="checkbox" className="drawer-toggle" />
-                        <div className="drawer-content flex flex-col">
-                            {/* Navbar */}
-                            <div className="navbar w-full">
-                                <div className="mx-2 flex-1 px-2">
-                                    <div onClick={() => navigate("/")} className="btn btn-ghost flex justify-center hover:bg-transparent px-0">
-                                        <img className="w-10 h-10" src={logoImg} alt="logo" />
-                                        <h2 className={`text-2xl md:text-3xl ${theme === "light" ? "text-font_primary" : "text-font_tertiary"} font-extrabold`}>Race<span className="text-primary">Connect</span></h2>
+        <div className={`py-3 font-lato sticky top-0 z-10 ${theme === "light" ? "bg-[#ffffff75]" : "bg-[#21212175]"} backdrop-blur-xl shadow-lg`}>
+            <div className="relative">
+                <img className="absolute top-0 h-[88px] w-[60px] md:w-[66px] lg:w-[88px]" src={navImg} alt="" />
+                <div className="container mx-auto">
+                    <div className="w-11/12 mx-auto">
+                        <div className="drawer drawer-end">
+                            <input id="my-drawer" type="checkbox" className="drawer-toggle" />
+                            <div className="drawer-content flex flex-col">
+                                {/* Navbar */}
+                                <div className="navbar w-full">
+                                    <div className="mx-2 flex-1 px-2">
+                                        <div onClick={() => navigate("/")} className="btn btn-ghost flex justify-center hover:bg-transparent px-0">
+                                            <img className="w-10 h-10" src={logoImg} alt="logo" />
+                                            <h2 className={`text-2xl md:text-3xl ${theme === "light" ? "text-font_primary" : "text-font_tertiary"} font-extrabold`}>Race<span className="text-primary">Connect</span></h2>
+                                        </div>
                                     </div>
-                                </div>
-                                <div className="flex-none">
-                                    <ul className="menu menu-horizontal font-medium lg:flex gap-5 hidden">
-                                        {/* Navbar menu content here */}
-                                        {links}
-                                    </ul>
-                                    <label className="swap swap-rotate ml-4">
-                                        {/* this hidden checkbox controls the state */}
-                                        <input
-                                            type="checkbox"
-                                            onChange={toggleTheme}
-                                            checked={theme === 'dark'}
-                                            className="hidden" />
+                                    <div className="flex-none">
+                                        <ul className="menu menu-horizontal font-medium lg:flex gap-5 hidden">
+                                            {/* Navbar menu content here */}
+                                            {links}
+                                        </ul>
+                                        <label className="swap swap-rotate ml-4">
+                                            {/* this hidden checkbox controls the state */}
+                                            <input
+                                                type="checkbox"
+                                                onChange={toggleTheme}
+                                                checked={theme === 'dark'}
+                                                className="hidden" />
 
-                                        {/* sun icon */}
-                                        <div className="swap-on text-font_tertiary flex items-center">
-                                            <FiSun className="hidden md:block" size={26} />
-                                            <FiSun className="md:hidden" size={23} />
-                                        </div>
+                                            {/* sun icon */}
+                                            <div className="swap-on text-font_tertiary flex items-center">
+                                                <FiSun className="hidden md:block" size={26} />
+                                                <FiSun className="md:hidden" size={23} />
+                                            </div>
 
-                                        {/* moon icon */}
-                                        <div className="swap-off text-font_primary flex items-center">
-                                            <HiOutlineMoon className="hidden md:block" size={26} />
-                                            <HiOutlineMoon className="md:hidden" size={23} />
-                                        </div>
-                                    </label>
-
-                                    {
-                                        user?.email &&
-                                        <div className="ml-4">
-                                            {
-                                                user?.photoURL ?
-                                                    <div className="tooltip tooltip-bottom" data-tip={user?.displayName}>
-                                                        <img className={`w-12 h-12 md:w-[52px] md:h-[52px] rounded-full`} src={user?.photoURL} alt="" />
-                                                    </div>
-                                                    :
-                                                    <div className={`tooltip tooltip-bottom ${theme === "light" ? "text-font_primary" : "text-font_tertiary"}`} data-tip={user?.displayName}>
-                                                        <FaUserCircle size={45} />
-                                                    </div>
-                                            }
-                                        </div>
-                                    }
-
-                                    {
-                                        user?.email &&
-                                        <button onClick={logOut} className={`hidden lg:block btn bg-secondary text-font_primary hover:bg-font_quaternary font-lato px-4 font-bold text-base border-none ml-4`}>Log Out</button>
-                                    }
-
-                                    <div className="flex-none lg:hidden">
-                                        <label htmlFor="my-drawer" aria-label="open sidebar" className="btn btn-square btn-ghost">
-                                            <div className={`btn btn-ghost lg:hidden ${theme === "light" ? "text-font_primary" : "text-font_tertiary"}`}>
-                                                <FaBars size={25} />
+                                            {/* moon icon */}
+                                            <div className="swap-off text-font_primary flex items-center">
+                                                <HiOutlineMoon className="hidden md:block" size={26} />
+                                                <HiOutlineMoon className="md:hidden" size={23} />
                                             </div>
                                         </label>
+
+                                        {
+                                            user?.email &&
+                                            <div className="ml-4">
+                                                {
+                                                    user?.photoURL ?
+                                                        <div className="tooltip tooltip-bottom" data-tip={user?.displayName}>
+                                                            <img className={`w-12 h-12 md:w-[52px] md:h-[52px] rounded-full`} src={user?.photoURL} alt="" />
+                                                        </div>
+                                                        :
+                                                        <div className={`tooltip tooltip-bottom ${theme === "light" ? "text-font_primary" : "text-font_tertiary"}`} data-tip={user?.displayName}>
+                                                            <FaUserCircle size={45} />
+                                                        </div>
+                                                }
+                                            </div>
+                                        }
+
+                                        {
+                                            user?.email &&
+                                            <button onClick={logOut} className={`hidden lg:block btn bg-secondary text-font_primary hover:bg-font_quaternary font-lato px-4 font-bold text-base border-none ml-4`}>Log Out</button>
+                                        }
+
+                                        <div className="flex-none lg:hidden">
+                                            <label htmlFor="my-drawer" aria-label="open sidebar" className="btn btn-square btn-ghost">
+                                                <div className={`btn btn-ghost lg:hidden ${theme === "light" ? "text-font_primary" : "text-font_tertiary"}`}>
+                                                    <FaBars size={25} />
+                                                </div>
+                                            </label>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div className="drawer-side z-50">
-                            <label htmlFor="my-drawer" aria-label="close sidebar" className="drawer-overlay"></label>
-                            <ul className={`menu ${theme === "light" ? "bg-white" : "bg-d_body"} flex gap-3 min-h-full w-60 md:w-72 px-6 py-8 z-10`}>
-                                {links}
-                            </ul>
+                            <div className="drawer-side z-50">
+                                <label htmlFor="my-drawer" aria-label="close sidebar" className="drawer-overlay"></label>
+                                <ul className={`menu ${theme === "light" ? "bg-white" : "bg-d_body"} flex gap-3 min-h-full w-60 md:w-72 px-6 py-8 z-10`}>
+                                    {links}
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
